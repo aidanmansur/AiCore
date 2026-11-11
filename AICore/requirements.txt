@@ -1,0 +1,5 @@
+flask>=3.0,<4.0
+python-dotenv>=1.0.0
+
+# Yalnız PROVIDER=claude (pullu) seçsəniz lazımdır:
+# anthropic>=0.40.0

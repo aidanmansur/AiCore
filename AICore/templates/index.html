@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICore - Smart AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="app-container" id="appContainer">
+
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <div>
+                    <h1>AICore</h1>
+                    <p>Smart AI Assistant</p>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="status" id="status">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Yoxlanılır...</span>
+                </div>
+                <button type="button" class="ghost-button" id="newChatButton" title="Yeni söhbət başlat">Yeni söhbət</button>
+            </div>
+        </header>
+
+        <main class="chat-container">
+
+            <div class="chat-messages" id="chatMessages" aria-live="polite">
+                <div class="welcome" id="welcome">
+                    <h2>Salam! 👋</h2>
+                    <p>Mən AICore-am. İstənilən sualı yaz və ya şəkil əlavə et, ətraflı cavab verim.</p>
+                    <div class="suggestions">
+                        <button type="button" class="chip" data-prompt="Süni intellekt necə işləyir? Sadə dillə izah et.">Süni intellekt necə işləyir?</button>
+                        <button type="button" class="chip" data-prompt="Python-da siyahını sürətli sıralamaq üçün nümunə göstər.">Python kod nümunəsi</button>
+                        <button type="button" class="chip" data-prompt="Məhsuldarlığı artırmaq üçün 5 praktik məsləhət ver.">Məhsuldarlıq məsləhətləri</button>
+                        <button type="button" class="chip" data-attach="1">📎 Şəkli analiz et</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attachments" id="attachments" hidden></div>
+
+            <form class="chat-form" id="chatForm">
+                <input type="file" id="fileInput" accept="image/jpeg,image/png,image/gif,image/webp" multiple hidden>
+
+                <button type="button" class="icon-button" id="attachButton" title="Şəkil əlavə et" aria-label="Şəkil əlavə et">📎</button>
+
+                <textarea
+                    id="messageInput"
+                    rows="1"
+                    maxlength="4000"
+                    placeholder="Mesajını yaz və ya şəkil yapışdır..."
+                    aria-label="Mesaj"
+                ></textarea>
+
+                <button type="submit" id="sendButton">
+                    <span id="sendLabel">Göndər</span>
+                    <span id="sendIcon">➤</span>
+                </button>
+            </form>
+
+            <p class="footer-text">
+                AICore səhv edə bilər. Sağlamlıq, hüquq və təhlükəsizlik məsələlərində cavabları mütəxəssislə yoxlayın.
+            </p>
+
+        </main>
+
+        <div class="drop-overlay" id="dropOverlay" hidden>Şəkli buraya burax</div>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+
+    <script src="{{ url_for('static', filename='markdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
